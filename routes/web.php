@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\PagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,16 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [PagesController::class, 'index']);
+Route::get('article', [PagesController::class, 'articleSite']);
 
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/signup', function () {
-    return view('signup');
-});
-
-// Route::get('login', [LoginController::class, 'login']);
+Route::get('login', [CustomAuthController::class, 'index']);
+Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
+// Login Tab
+// Route::get('dashboard', [CustomAuthController::class, 'dasboard']);
+// Route::get('login', [CustomAuthController::class, 'index'])->name('login');
+// Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
+// Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
+// Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
+// Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');

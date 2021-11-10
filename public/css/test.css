@@ -1,0 +1,53 @@
+.judulLaman{
+    /* position: absolute; */
+    width: 612px;
+    height: 105px;
+    left: 414px;
+    top: 115px;
+    background: #F45A5A;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    margin-top: 50px;
+}
+
+.bloodIcon{
+    width: 84px;
+    height: 84px;
+    left: 429px;
+    top: 125px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.formLogin{
+    width: 612px;
+    height: 421px;
+    left: 414px;
+    top: 263px;
+    margin-top: 30px;
+    background: #C4C4C4;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+
+.judulAplikasi{
+    width: 448px;
+    height: 66px;
+    left: 555px;
+    top: 134px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 35px;
+    line-height: 41px;
+    display: flex;
+    margin-top: 18px;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.labelLogin{
+    font-size: 24px;
+    margin-left: 5px;
+}

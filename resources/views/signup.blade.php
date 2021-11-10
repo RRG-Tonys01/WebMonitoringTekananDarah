@@ -41,7 +41,7 @@
         <div class="row">
             <img src="/images/bloodIcon.jpeg" alt="Blood Icon" class="bloodIcon">
             <div class="col">
-                <h1 class="judulAplikasi lol">Monitoring Tekanan Darah</h1>
+                <h1 class="judulAplikasi">Monitoring Tekanan Darah</h1>
             </div>
         </div>
 

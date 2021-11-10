@@ -1,0 +1,20 @@
+*{
+    margin: auto;
+}
+
+body{
+    background:rgba(235, 44, 44, 0.842);
+    margin: 0;
+    color: white;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding-left: 0%;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 66% auto;
+    padding: 4em 1em;
+
+}
+

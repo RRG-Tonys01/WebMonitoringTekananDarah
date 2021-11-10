@@ -20,7 +20,7 @@
     <title>@yield('title')</title>
   </head>
   <body>
-    @yield('navbar')
+    @include('navigation.navbar')
     @yield('mainbody')
 
     <!-- Optional JavaScript -->
