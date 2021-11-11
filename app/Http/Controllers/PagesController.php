@@ -18,7 +18,7 @@ class PagesController extends Controller
 
     public function articleSite()
     {
-        return view('article');
+        return view('blog.article');
     }
     /**
      * Show the form for creating a new resource.

@@ -3,18 +3,28 @@
 }
 
 body{
-    background:rgba(235, 44, 44, 0.842);
+    /* background:rgba(235, 44, 44, 0.842); */
     margin: 0;
-    color: white;
+    color:black;
     overflow-x: hidden;
     overflow-y: scroll;
     padding-left: 0%;
 }
 
-.container{
-    display: grid;
-    grid-template-columns: 66% auto;
-    padding: 4em 1em;
-
+.content h1{
+    text-align: center;
 }
 
+.content p{
+    text-align: justify;
+}
+
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+}

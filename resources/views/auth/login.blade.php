@@ -13,9 +13,8 @@
             <span>Password</span>
         </div>
         <div class="inputbox">
-            <input type="submit" value="submit">
+            <input type="button" value="submit">
         </div>
-        <div class="inputbox">
-        </div>
+
     </form>
 </div>

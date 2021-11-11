@@ -38,14 +38,39 @@
 
 @section('mainbody')
 <div class="container">
-    <div class="content">
-        <h1>Judul Apalah Itu</h1>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem neque possimus nam nihil? Optio nam culpa dignissimos, a ut eligendi iusto inventore doloremque iure odit quas! Ab esse aut laborum!</p>
+    <div class="row">
+        <div class="col-8 content">
+            <h1>Monitoring Tekanan Darah Anda</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit magni praesentium quisquam deserunt quo voluptatibus similique officia, enim maiores dicta magnam nam. Sed, voluptate? Reiciendis necessitatibus repellendus error est suscipit.</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore beatae, aspernatur aliquid sunt dicta odit aliquam suscipit veritatis doloremque modi perspiciatis laboriosam tempore ratione quia. Quia nemo sed autem nam.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis animi, esse odio repellat quis modi quos recusandae hic quam consequuntur amet cupiditate architecto officiis fugit quas. Animi laboriosam ut facere.</p>
+        </div>
+        <div class="col-4">
+            <img src="/images/tensimeter.png" alt="Tensi Meter">
+        </div>
     </div>
-    <img src="/images/doctor.png" alt="Doctor" width="200px" height="100%">
 </div>
 
 <footer>
+    <div class="container">
+        <div class="row">
+            <h3>Copyright Gamma-7</h3>
+        </div>
+    </div>
+</footer>
+{{-- <div class="container desc">
+    <div class="content">
+        <h1>Selamat Datang</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, dignissimos rem. Dolores, corporis voluptas officiis nesciunt beatae suscipit reiciendis error laudantium maiores ab, qui, placeat doloremque unde officia? Odit, earum!</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere in id hic nulla cumque rem facilis explicabo. Sequi consequatur earum sapiente vitae neque corporis delectus? Beatae autem dolor enim accusantium.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni odio minus assumenda eum ducimus eveniet, totam maxime optio vel veniam natus atque repellendus aliquam itaque. Quis inventore consequatur sequi quas?</p>
+    </div>
+    <img src="/images/doctor.png" alt="Doctor">
+</div> --}}
+{{-- <img alt="" src="/images/doctor.png" />
+
+
+{{-- <footer>
   <div class="row">
 
     <div class="card" style="width: 18rem;">
@@ -73,7 +98,7 @@
         </div>
       </div>
   </div>
-</footer>
+</footer> --}}
 @endsection
 
 

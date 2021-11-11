@@ -21,6 +21,7 @@ Route::get('article', [PagesController::class, 'articleSite']);
 
 Route::get('login', [CustomAuthController::class, 'index']);
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
+
 // Login Tab
 // Route::get('dashboard', [CustomAuthController::class, 'dasboard']);
 // Route::get('login', [CustomAuthController::class, 'index'])->name('login');
