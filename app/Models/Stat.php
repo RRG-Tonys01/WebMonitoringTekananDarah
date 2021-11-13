@@ -3,11 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class Stat extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -17,11 +17,12 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'username',
-        'nama',
-        'jenis_kelamin',
-        'tanggal_lahir',
-        'password',
+        'kode_status',
+        'nama_status',
+        'sistolik_minimum',
+        'sistolik_maxmimum',
+        'diastolik_maxmimum',
+        'diastolik_maxmimum',
     ];
 
     /**
@@ -30,8 +31,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        // 'password',
+        // 'remember_token',
     ];
 
     /**
@@ -43,9 +44,4 @@ class User extends Authenticatable
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];
-
-    public function setPasswordAttribute($password)
-    {
-        $this->attributes['password'] = bcrypt($password);
-    }
 }

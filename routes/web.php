@@ -3,6 +3,7 @@
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PagesController;
 
 /*
@@ -19,8 +20,14 @@ use App\Http\Controllers\PagesController;
 Route::get('/', [PagesController::class, 'index']);
 Route::get('article', [PagesController::class, 'articleSite']);
 
-Route::get('login', [CustomAuthController::class, 'index']);
-Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
+Route::get('login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('login', [LoginController::class, 'authenticate']);
+Route::post('logout', [LoginController::class, 'logout']);
+
+
+// Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth');
+
+Route::get('dashboard', [DashboardController::class, 'index']);
 
 // Login Tab
 // Route::get('dashboard', [CustomAuthController::class, 'dasboard']);
