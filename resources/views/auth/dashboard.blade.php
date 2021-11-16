@@ -1,119 +1,117 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.84.0">
-    <title>Sidebars · Bootstrap v5.0</title>
+@extends('/layouts.main')
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
+@section('title', 'Monitor Tekanan Darah')
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
+@section('css')
+<link rel="stylesheet" href="/css/sidebars.css">
+<link rel="stylesheet" href="/css/dashboard.css">
+@endsection
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
+@section('js')
+<script>
+$('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+});
+</script>
+@endsection
 
-
-    <!-- Custom styles for this template -->
-    <link href="/css/sidebars.css" rel="stylesheet">
-  </head>
-  <body>
-
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-  <symbol id="bootstrap" viewBox="0 0 118 94">
-    <title>Bootstrap</title>
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"></path>
-  </symbol>
-
-</svg>
-
+@section('mainbody')
 <main>
     <aside>
-        <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white" style="width: 380px;">
-            <a href="/" class="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
-            <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
-            <span class="fs-5 fw-semibold">Riwayat Tensi Anda</span>
-            </a>
-            <div class="list-group list-group-flush border-bottom scrollarea">
-            <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
-                <small>dd/mm/yyyy HH:MM</small>
-                    <div class="d-flex w-100 align-items-center justify-content-between border-bottom">
-                        <strong class="mb-1">Sistolik (mmHg)</strong>
-                    </div>
-                    <div class="d-flex w-100 align-items-center justify-content-between">
-                        <strong class="mb-1">Diastolik (mmHg)</strong>
-                    </div>
-                    <div class="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action py-3 lh-tight">
-                <small>dd/mm/yyyy HH:MM</small>
-                    <div class="d-flex w-100 align-items-center justify-content-between border-bottom">
-                        <strong class="mb-1">Sistolik (mmHg)</strong>
-                    </div>
-                    <div class="d-flex w-100 align-items-center justify-content-between">
-                        <strong class="mb-1">Diastolik (mmHg)</strong>
-                    </div>
-                    <div class="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
-            </a>
+        <div class="area"></div>
+        <nav class="main-menu">
+            <ul>
+                <li>
+                    <a href="{{url('/dashboard')}}">
+                        <i class="fa fa-home fa-2x"></i>
+                        <span class="nav-text">
+                            Dashboard
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{url('/dashboard')}}">
+                        <i class="fa fa-home fa-2x"></i>
+                        <span class="nav-text">
+                            Monitor Tekanan Darah
+                        </span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="logout">
+                <li>
+                   <a href="{{url('/logout')}}">
+                         <i class="fa fa-power-off fa-2x"></i>
+                        <span class="nav-text">
+                            Logout
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <div class="container welcome">
+        <h1>Welcome, {{Auth::user()->username;}}</h1>
+    </div>
+
+    <div class="center formLayout">
+        <div class="container inputForm">
+            <div class="headerForm">
+                <h2>
+                    Masukkan Tekanan Darah Anda
+                </h2>
+                <hr class="dropdown-divider">
+            </div>
+
+            <form method="POST" action="{{url('/dashboard')}}">
+                @csrf
+                <div class="inputbox">
+                    <label for="beratbadan">Berat Badan Saat Ini : </label>
+                    <input type="text" name="beratbadan" id="beratbadan" placeholder="Input Berat Badan">
+                </div>
+                <div class="inputbox">
+                    <label for="siastolik">Tekanan Darah Siastolik Saat Ini :</label>
+                    <input type="text" name="siastolik" id="siastolik" placeholder="Input Tekanan Siastolik">
+                </div>
+                <div class="inputbox">
+                    <label for="diastolik">Tekanan Darah Diastolik Saat Ini :</label>
+                    <input type="text" name="diastolik" id="diastolik" placeholder="Input Tekanan Diastolik">
+                </div>
+                <div class="inputbox">
+                    <input type="submit" value="submit" data-toogle="modal" data-target="#resultModal">
+                    {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                        Submit
+                    </button> --}}
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            ...
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
-    </aside>
-  <div>
-  <div class="container py-4">
+        </div>
+    </div>
 
-    <div class="p-5 mb-4 bg-light rounded-3">
-        <div class="row">
-            <div class="col-4">
-                <div class="container-fluid">
-                    <img src="https://image.flaticon.com/icons/png/128/845/845084.png" alt="" width="100px">
-                  </div>
-            </div>
-            <div class="col-8">
-                <h1 class="display-5 fw-bold">Masukkan Tekanan Darah Anda Hari ini</h1>
-                <!-- <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p> -->
-                <div class="d-flex w-100 align-items-center justify-content-between">
-                    <form action="" method="post">
-                        <input type="text" name="sistolik" placeholder="Input Sistolik">
-                        <br>
-                        <input type="text" name="diastolik" placeholder="Input Diastolik">
-                        <br>
-                        <button class="btn btn-primary btn-lg" type="submit">Submit</button>
-                    </form>
-                </div>
-            </div>
-    </div>
-    </div>
-    <div class="d-flex bd-highlight mb-3">
-  <div class="me-auto p-2 bd-highlight bg-secondary">
-      <p>Keterangan:</p>
-      <p>
-        N   : Normal<br>
-        P   : PreHipertensi<br>
-        H   : Hipertensi<br>
-        H1 : H. Stage 1<br>
-        H2 : H. Stage 2
-      </p>
-  </div>
-  <div class="p-1 bd-highlight align-self-sm-center"><button class="btn btn-secondary btn-lg">About Us</button></div>
-  <div class="p-1 bd-highlight align-self-sm-center"><button class="btn btn-secondary btn-lg">Ajukan Keluhan</button></div>
-</div>
 </main>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-      <script src="/js/sidebars.js"></script>
-  </body>
-</html>
+@endsection

@@ -3,15 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class Control extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
-
-    // protected $primaryKey = 'kode_user';
 
     /**
      * The attributes that are mass assignable.
@@ -19,11 +17,11 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'username',
-        'nama',
-        'jenis_kelamin',
-        'tanggal_lahir',
-        'password',
+        'kode_user',
+        'tkn_siastolik',
+        'berat_badan',
+        'tkn_diastolik',
+        'kode_status',
     ];
 
     /**
@@ -32,8 +30,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        // 'password',
+        // 'remember_token',
     ];
 
     /**
@@ -45,9 +43,4 @@ class User extends Authenticatable
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];
-
-    public function setPasswordAttribute($password)
-    {
-        $this->attributes['password'] = bcrypt($password);
-    }
 }
