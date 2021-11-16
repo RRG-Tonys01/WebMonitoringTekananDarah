@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,14 +21,16 @@ use App\Http\Controllers\PagesController;
 Route::get('/', [PagesController::class, 'index']);
 Route::get('article', [PagesController::class, 'articleSite']);
 
+// Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::get('login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('login', [LoginController::class, 'authenticate']);
-Route::post('logout', [LoginController::class, 'logout']);
+Route::get('logout', [LoginController::class, 'logout']);
 
 
-// Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::post('dasborad', [DashboardController::class, 'generateResult']);
 
-Route::get('dashboard', [DashboardController::class, 'index']);
+// Route::get('dashboard', [DashboardController::class, 'index']);
 
 // Login Tab
 // Route::get('dashboard', [CustomAuthController::class, 'dasboard']);
@@ -36,3 +39,5 @@ Route::get('dashboard', [DashboardController::class, 'index']);
 // Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
 // Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
 // Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
+
+Route::get('register', [RegisterController::class, 'index']);

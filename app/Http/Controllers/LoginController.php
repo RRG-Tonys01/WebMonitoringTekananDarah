@@ -10,6 +10,9 @@ class LoginController extends Controller
 {
     public function index()
     {
+        if (Auth::check()) {
+            return redirect('/dashboard');
+        }
         return view('auth.login');
     }
 
@@ -19,14 +22,11 @@ class LoginController extends Controller
             'username' => ['required'],
             'password' => ['required'],
         ]);
-        // var_dump(Hash::make('user123'));
-        // dd();
+
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('auth.dashboard');
+            return redirect()->intended('/dashboard');
         }
-
-        // dd('login success');
 
         return back()->with('loginError', 'Login failed!!!');
     }
