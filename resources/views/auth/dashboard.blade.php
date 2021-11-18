@@ -32,8 +32,9 @@ $('#myModal').on('shown.bs.modal', function () {
                 <li>
                     <a href="{{url('/dashboard')}}">
                         <i class="fa fa-home fa-2x"></i>
+                        {{-- <i class="material-icons"></i> --}}
                         <span class="nav-text">
-                            Monitor Tekanan Darah
+                            Riwayat
                         </span>
                     </a>
                 </li>
@@ -66,6 +67,7 @@ $('#myModal').on('shown.bs.modal', function () {
 
             <form method="POST" action="{{url('/dashboard')}}">
                 @csrf
+                @method('PUT')
                 <div class="inputbox">
                     <label for="beratbadan">Berat Badan Saat Ini : </label>
                     <input type="text" name="beratbadan" id="beratbadan" placeholder="Input Berat Badan">

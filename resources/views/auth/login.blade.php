@@ -8,6 +8,13 @@
 @endif
 <div class="wrapBg">
     <div class="center">
+        @if(session()->has('successRegister'))
+            <div class="alaer alert-success alert-dismissible fade show" role="alert">
+                {{session('successRegister')}}
+                <button type="button" class="btn-close" data-bs-dismiss="aler" aria-label="Close"></button>
+            </div>
+        @endif
+
         <h1>Login</h1>
         <form method="POST" action="{{url('/login')}}">
             @csrf
