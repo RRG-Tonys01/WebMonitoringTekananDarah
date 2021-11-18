@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
@@ -23,7 +26,6 @@ class RegisterController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -34,7 +36,28 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'username' => ['require', 'min:6', 'max:15', 'unique:users'],
+            'nama' => ['require', 'max:50'],
+            'jenis_kelamin' => ['require'],
+            'tanggalLahir' => ['require'],
+            'password' => ['require', 'min:8'],
+        ]);
+
+        $validatedData['password'] = bcrypt($validatedData['password']);
+        // $validatedData['password'] = Hash::make($validatedData['password']);
+
+        // $users = new User;
+        // $users->username = $request->username;
+        // $users->nama = $request->nama;
+        // $users->jenis_kelamin = $request->jk;
+        // $users->tanggal_lahir = $request->tanggalLahir;
+        // $users->password = bcrypt($request->password);
+
+        User::created($validatedData);
+        // dd("register berhasil");
+        // $request->session()->flash('successRegister', 'Register Berhasil!! Silahkan Login untuk melanjutkan');
+        return redirect('/login')->with('successRegister', 'Register Berhasil!! Silahkan Login untuk melanjutkan');
     }
 
     /**

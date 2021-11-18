@@ -28,7 +28,7 @@ Route::get('logout', [LoginController::class, 'logout']);
 
 
 Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth');
-Route::post('dasborad', [DashboardController::class, 'generateResult']);
+Route::post('dasborad', [DashboardController::class, 'insertData']);
 
 // Route::get('dashboard', [DashboardController::class, 'index']);
 
@@ -41,3 +41,4 @@ Route::post('dasborad', [DashboardController::class, 'generateResult']);
 // Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
 Route::get('register', [RegisterController::class, 'index']);
+Route::post('register', [RegisterController::class, 'store']);
