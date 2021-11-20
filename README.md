@@ -63,3 +63,12 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Anggota
+GAMMA 7 - Anggota :
+
+Edrick Sugiharto Putra	00000041062
+Muhammad Rafi Sofyan	00000037957
+Toni Sembiring		00000040075
+
+Mantap Edan GG
