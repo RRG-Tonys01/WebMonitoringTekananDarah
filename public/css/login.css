@@ -14,8 +14,9 @@ body {
 
 .center {
     position: relative;
+    max-height: 80%;
     padding: 50px 50px;
-    background: #a59f9f;
+    background: rgba(165, 159, 159, 0.9);
     border-radius: 10px;
     border: 1px solid black;
 }

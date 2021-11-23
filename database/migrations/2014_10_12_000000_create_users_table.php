@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateUsersTable extends Migration
 {
@@ -25,6 +26,18 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->unique('username');
         });
+        DB::table('users')->insert(
+            array(
+                [
+                    'username' => 'user',
+                    'password' => '$2y$10$39vrrvzofm7T6FZhsEnzcOapT9RkuueDlNTjXqbXuRsHL0jF50.xe',
+                    'nama' => 'admin super',
+                    'jenis_kelamin' => 'helikopter',
+                    'tanggal_lahir' => '2001-10-05'
+                ],
+                
+            )
+        );
     }
 
     /**

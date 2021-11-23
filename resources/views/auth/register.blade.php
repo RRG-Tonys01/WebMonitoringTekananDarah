@@ -57,6 +57,7 @@
             </div>
             <div class="inputbox">
                 <button type="submit">Submit</button>
+                <a href="{{url('/login')}}">Kembali</a>
             </div>
         </form>
     </div>

@@ -91,4 +91,15 @@ class DashboardController extends Controller
             'diastolik' => ['required', 'integer'],
         ]);
     }
+
+
+    public function tester(Request $request)
+    {
+        // var_dump($request->post());
+        $rules = DB::table('rules')->where('gejala', 'G17')->get();
+        // foreach($rules as $rule){
+        //     echo $rule->gejala;
+        // }
+        echo $rules;
+    }
 }

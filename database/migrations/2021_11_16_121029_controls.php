@@ -19,9 +19,9 @@ class Controls extends Migration
             $table->integer('berat_badan');
             $table->integer('tkn_diastolik');
             $table->string('kode_status', 10);
-            $table->timestamps();
-            $table->foreign('kode_user')->references('id')->on('users');
-            $table->foreign('kode_status')->references('kode_status')->on('stats');
+            // $table->timestamps();
+            // $table->foreign('kode_user')->references('id')->on('users');
+            // $table->foreign('kode_status')->references('kode_status')->on('stats');
         });
     }
 

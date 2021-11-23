@@ -21,14 +21,14 @@ use App\Http\Controllers\RegisterController;
 Route::get('/', [PagesController::class, 'index']);
 Route::get('article', [PagesController::class, 'articleSite']);
 
-// Route::get('login', [LoginController::class, 'index'])->name('login');
-Route::get('login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::get('login', [LoginController::class, 'index'])->name('login');
+// Route::get('login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('login', [LoginController::class, 'authenticate']);
 Route::get('logout', [LoginController::class, 'logout']);
 
 
 Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth');
-Route::post('dasborad', [DashboardController::class, 'insertData']);
+Route::post('dashboard', [DashboardController::class, 'tester']);
 
 // Route::get('dashboard', [DashboardController::class, 'index']);
 

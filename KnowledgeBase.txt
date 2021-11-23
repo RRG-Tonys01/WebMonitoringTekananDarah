@@ -1,0 +1,60 @@
+Tabel klasifikasi
+
+Kode Klasifikasi - Klasifikasi Tekanan Darah
+
+K01 - Optimal
+K02 - Normal
+K03 - Pra Hipertensi
+K04 - Hipertensi Derajat I
+K05 - Hipertensi Derajat II
+K06 - Hipertensi Urgensi Asimtomatik
+K07 - Hipertensi Urgensi Sistomatik
+K08 - Hipertensi Emeregensi
+
+
+============
+
+Tabel Gejala Hipertensi
+
+Kode Gejala - Gejala
+
+G01 - Nilai Sistolik <120 mmHg
+G02 - Nilai Diastolik<80 mmHg
+G03 - Nilai Sistolik 121-130 mmHg
+G04 - Nilai Diastolik 81 – 85 mmHg
+G05 - Nilai Sistolik 130 – 139 mmHg
+G06 - Nilai Diastolik 85-89 mmHg
+G07 - Nilai Sistolik 140 - 159 mmHg
+G08 - Nilai Diastolik 90 - 99 mmHg
+G09 - Nilai Sistolik 160 - 179 mmHg
+G10 - Nilai Diastolik 100 - 109 mmHg
+G11 - Nilai Sistolik 180 - 220 mmHg
+G12 - Nilai Diastolik 110 - 140 mmHg
+G13 - Nilai Sistolik >220 mmHg
+G14 - Nilai Diastolik >140 mmHg
+G15 - Sakit Kepala
+G16 - Gelisah
+G17 - Pusing
+G18 - Rasa Sakit Di dada
+G19 - Mudah Lelah
+G20 - Sering Asimptomatik
+G21 - Sakit Kepala Berat
+G22 - Napas Pendek
+G23 - Nokturia
+G24 - Disartria
+G25 - Gangguan Kesadaran
+
+=================
+
+Tabel Hasil pelacakan Hipertensi(Rule)
+
+Kode Gejala - Gejala
+
+1 G01, G02 		- K01
+2 G03, G04		- K02
+3 G05, G06, G17		- K03
+4 G07, G08, G15, G 17	- K04
+5 G09, G10, G15, G16, G17 - K05
+6 G11, G12, G15, G16, G20	- K06
+7 G11, G12, G21, G22	- k07
+8 G13, G14, G18, G22, G23, G24, G25	- K08
