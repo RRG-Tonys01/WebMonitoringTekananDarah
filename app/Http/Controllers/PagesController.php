@@ -8,8 +8,8 @@ class PagesController extends Controller
 {
     public function index()
     {
-        return view('home');
-        // return view('contoh');
+        // return view('home');
+        return view('contoh');
     }
 
     public function articleSite()

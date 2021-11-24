@@ -13,17 +13,18 @@ class Stats extends Migration
      */
     public function up()
     {
-        Schema::create('stats', function (Blueprint $table) {
-            $table->string('kode_status', 10);
-            $table->string('nama_status', 50);
-            $table->integer('sistolik_minimum');
-            $table->integer('sistolik_maxmimum');
-            $table->integer('diastolik_minimum');
-            $table->integer('diastolik_maxmimum');
-            $table->rememberToken();
-            $table->timestamps();
-            $table->primary('kode_status');
-        });
+        if (!Schema::hasTable('stats')) {
+            Schema::createIf('stats', function (Blueprint $table) {
+                $table->string('kode_status', 10);
+                $table->string('nama_status', 50);
+                $table->integer('sistolik_minimum');
+                $table->integer('sistolik_maxmimum');
+                $table->integer('diastolik_minimum');
+                $table->integer('diastolik_maxmimum');
+                $table->timestamps();
+                $table->primary('kode_status');
+            });
+        }
     }
 
     /**

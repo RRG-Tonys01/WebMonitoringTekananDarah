@@ -4,12 +4,12 @@
 
 html,
 body {
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     background: #efe7bc;
     /* margin: 0; */
     color: black;
-    /* overflow-x: hidden; */
-    /* overflow-y: auto; */
+    /* overflow-x: hidden;
+    overflow-y: hidden; */
 }
 
 .row {
@@ -50,12 +50,12 @@ a:hover {
 }
 
 .kiriPage {
-    max-height: 100%;
-    height: 700px;
+    /* max-height: 100%; */
+    /* height: auto; */
     background-color: salmon;
     border: 1px solid black;
     border-radius: 20px;
-    padding: 20px;
+    padding: 10px;
 }
 
 .kiriPage img {
@@ -85,7 +85,7 @@ a:hover {
 
 .quotes {
     text-align: center;
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
 }
 
 .kiriPage h2,
@@ -95,6 +95,6 @@ h4 {
     margin-bottom: 20px;
 }
 
-.kiriPage a {
+/* .kiriPage a {
     margin-top: 1em;
-}
+} */

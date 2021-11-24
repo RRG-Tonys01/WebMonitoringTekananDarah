@@ -14,147 +14,41 @@ class Rules extends Migration
      */
     public function up()
     {
-        Schema::create('rules', function (Blueprint $table) {
-            $table->string('gejala',25);
-            $table->string('gejala_next',25);
-            });
-            // Insert some stuff
-            DB::table('rules')->insert(
-                array(
-                    [
-                        'gejala' => 'G01',
-                        'gejala_next' => 'G02'
-                    ],
-                    [
-                        'gejala' => 'G02',
-                        'gejala_next' => 'K01'
-                    ],
-                    //2
-                    [
-                        'gejala' => 'G03',
-                        'gejala_next' => 'G04'
-                    ],
-                    [
-                        'gejala' => 'G04',
-                        'gejala_next' => 'K02'
-                    ],
-                    //3
-                    [
-                        'gejala' => 'G05',
-                        'gejala_next' => 'G06'
-                    ],
-                    [
-                        'gejala' => 'G06',
-                        'gejala_next' => 'G17'
-                    ],
-                    [
-                        'gejala' => 'G17',
-                        'gejala_next' => 'K03'
-                    ],
-                    //4
-                    [
-                        'gejala' => 'G07',
-                        'gejala_next' => 'G08'
-                    ],
-                    [
-                        'gejala' => 'G08',
-                        'gejala_next' => 'G15'
-                    ],
-                    [
-                        'gejala' => 'G15',
-                        'gejala_next' => 'G17'
-                    ],
-                    [
-                        'gejala' => 'G17',
-                        'gejala_next' => 'K04'
-                    ],
-                    //5
-                    [
-                        'gejala' => 'G09',
-                        'gejala_next' => 'G10'
-                    ],
-                    [
-                        'gejala' => 'G10',
-                        'gejala_next' => 'G15'
-                    ],
-                    [
-                        'gejala' => 'G15',
-                        'gejala_next' => 'G16'
-                    ],
-                    [
-                        'gejala' => 'G16',
-                        'gejala_next' => 'G17'
-                    ],
-                    [
-                        'gejala' => 'G17',
-                        'gejala_next' => 'K06'
-                    ],
-                    //6
-                    [
-                        'gejala' => 'G11',
-                        'gejala_next' => 'G12'
-                    ],
-                    [
-                        'gejala' => 'G12',
-                        'gejala_next' => 'G15'
-                    ],
-                    [
-                        'gejala' => 'G15',
-                        'gejala_next' => 'G16'
-                    ],
-                    [
-                        'gejala' => 'G16',
-                        'gejala_next' => 'G20'
-                    ],
-                    [
-                        'gejala' => 'G20',
-                        'gejala_next' => 'K06'
-                    ],
-                    //7
-                    [
-                        'gejala' => 'G11',
-                        'gejala_next' => 'G12'
-                    ],
-                    [
-                        'gejala' => 'G12',
-                        'gejala_next' => 'G21'
-                    ],
-                    [
-                        'gejala' => 'G21',
-                        'gejala_next' => 'G22'
-                    ],
-                    [
-                        'gejala' => 'G22',
-                        'gejala_next' => 'K07'
-                    ],
-                    //8
-                    [
-                        'gejala' => 'G13',
-                        'gejala_next' => 'G14'
-                    ],
-                    [
-                        'gejala' => 'G14',
-                        'gejala_next' => 'G18'
-                    ],
-                    [
-                        'gejala' => 'G18',
-                        'gejala_next' => 'G22'
-                    ],
-                    [
-                        'gejala' => 'G22',
-                        'gejala_next' => 'G23'
-                    ],
-                    [
-                        'gejala' => 'G23',
-                        'gejala_next' => 'G24'
-                    ],
-                    [
-                        'gejala' => 'G25',
-                        'gejala_next' => 'K08'
-                    ],
+        $kode_gejala = array(
+            'G01', 'G02',
+            'G03', 'G04',
+            'G05', 'G06', 'G17',
+            'G07', 'G08', 'G15', 'G17',
+            'G09', 'G10', 'G15', 'G16', 'G17',
+            'G11', 'G12', 'G15', 'G16', 'G20',
+            'G11', 'G12', 'G21', 'G22',
+            'G13', 'G14', 'G18', 'G22', 'G23', 'G24', 'G25'
+        );
 
-                )
-            );
+        $next = array(
+            'G02', 'K01', 'G04', 'K02', 'G06', 'G17', 'K03', 'G08', 'G15', 'G17', 'K04',
+            'G10', 'G15', 'G16', 'G17', 'K06', 'G12', 'G15', 'G16', 'G20', 'K06', 'G12',
+            'G21', 'G22', 'K07', 'G14', 'G18', 'G18', 'G22', 'G23', 'G24', 'K08'
+        );
+
+        if (!Schema::hasTable('rules')) {
+            Schema::create('rules', function (Blueprint $table) {
+                $table->string('gejala', 25);
+                $table->string('g_next', 25);
+            });
+
+            $i = 0;
+
+            foreach ($kode_gejala as $gejala) {
+                DB::table('rules')->insert(
+                    [
+                        'gejala' => $gejala,
+                        'g_next' => $next[$i]
+                    ]
+                );
+                $i++;
+            }
+        }
     }
 
     /**
@@ -164,6 +58,6 @@ class Rules extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('rules');
     }
 }
