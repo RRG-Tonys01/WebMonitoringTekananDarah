@@ -22,9 +22,9 @@ main {
     border-radius: 10px;
 }
 
-.cekbox1{
+.gejala1{
     padding: 1em;
-    /* background-color: white; */
+    background-color: ivory;
     border: 1px solid black;
     border-radius: 10px;
 }
@@ -56,6 +56,9 @@ main {
     border-right: 1px solid black;
     border-left: 1px solid black;
     height: 102.5%;
+}
+.artikel1{
+    margin-bottom: 2em;
 }
 
 .inputbox{
@@ -95,7 +98,6 @@ main {
 }
 
 .center .input1 {
-    text-align: center;
     margin-top: 2em;
     padding-bottom: 2em;
     margin-left: 2em;

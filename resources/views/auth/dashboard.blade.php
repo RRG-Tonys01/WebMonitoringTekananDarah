@@ -106,7 +106,7 @@
                                     <input type="text" name="diastolik" id="diastolik" placeholder="Input Tekanan Diastolik">
                                 </div>
                                 <hr>
-                                <div class="container cekbox1">
+                                <div class="container gejala1">
                                     <div class="inputbox">
                                         <input class="form-check-input" type="checkbox" name="G15" id="G15">
                                         <label class="form-check-label" for="G15">Apakah anda merasakan sakit kepala?</label>
