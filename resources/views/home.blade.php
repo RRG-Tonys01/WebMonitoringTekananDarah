@@ -4,7 +4,7 @@
 
 @section('css')
 <link rel="stylesheet" href="/css/home.css">
-    {{-- <link rel="stylesheet" href="/css/navbar.css"> --}}
+{{-- <link rel="stylesheet" href="/css/navbar.css"> --}}
 @endsection
 
 @section('mainbody')
@@ -13,7 +13,7 @@
         <div class="col-8">
             <div class="kiriPage">
                 <h2><span>Monitoring Tekanan Darah</span></h2>
-                <div class="kiriDesc">
+                <div class="kiriDesc mt-5">
                     <img class="img-fluid mx-auto d-flex" src="https://cdn-icons-png.flaticon.com/512/1043/1043132.png" alt="">
                     <hr class="brake mx-auto">
                     <h4>Apa Itu Hipertensi???</h4>
@@ -25,7 +25,7 @@
                         <q><strong>Ayo Kontrol Tekanan Darahmu Sekarang Juga</strong></q><br>
                     </div>
                 </div>
-                <a href="{{url('/login')}}" class="btn btn-success btn-lg">
+                <a href="{{url('/login')}}" class="btn btn-success btn-lg mt-5 mb-2">
                     Kontrol Sekarang
                 </a>
             </div>
@@ -50,7 +50,3 @@
     </div>
 </main>
 @endsection
-
-
-
-

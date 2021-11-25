@@ -14,7 +14,7 @@ class Stats extends Migration
     public function up()
     {
         if (!Schema::hasTable('stats')) {
-            Schema::createIf('stats', function (Blueprint $table) {
+            Schema::create('stats', function (Blueprint $table) {
                 $table->string('kode_status', 10);
                 $table->string('nama_status', 50);
                 $table->integer('sistolik_minimum');

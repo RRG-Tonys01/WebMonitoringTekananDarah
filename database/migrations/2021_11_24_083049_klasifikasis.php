@@ -22,9 +22,9 @@ class Klasifikasis extends Migration
 
         $nama = array(
             'Optimal', 'Normal', 'Pra Hipertensi',
-            'Hipertensi Derajat', 'Hipertensi Derajat I',
-            'Hipertensi Derajat II', 'Hipertensi Urgensi Asimtomatik',
-            'Hipertensi Urgensi Sistomatik', 'Hipertensi Emeregensi'
+            'Hipertensi Derajat I', 'Hipertensi Derajat II',
+            'Hipertensi Urgensi Asimtomatik', 'Hipertensi Urgensi Simtomatik',
+            'Hipertensi Emergensi'
         );
 
         if (!Schema::hasTable('klasifikasis')) {

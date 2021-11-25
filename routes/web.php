@@ -42,3 +42,9 @@ Route::post('dashboard', [DashboardController::class, 'tester']);
 
 Route::get('register', [RegisterController::class, 'index']);
 Route::post('register', [RegisterController::class, 'store']);
+
+
+Route::post('result', [DashboardController::class, 'generateResult']);
+Route::post('tester', [DashboardController::class, 'tester']);
+
+Route::get('/result', [PagesController::class, 'result']);
