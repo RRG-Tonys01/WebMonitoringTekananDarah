@@ -13,6 +13,7 @@ class Stats extends Migration
      */
     public function up()
     {
+
         if (!Schema::hasTable('stats')) {
             Schema::create('stats', function (Blueprint $table) {
                 $table->string('kode_status', 10);

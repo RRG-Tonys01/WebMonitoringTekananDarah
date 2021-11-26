@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CheckController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
@@ -19,32 +20,20 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', [PagesController::class, 'index']);
-Route::get('article', [PagesController::class, 'articleSite']);
+Route::get('about', [PagesController::class, 'aboutIndex']);
 
+// Authenticate GET
 Route::get('login', [LoginController::class, 'index'])->name('login');
-// Route::get('login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::post('login', [LoginController::class, 'authenticate']);
-Route::get('logout', [LoginController::class, 'logout']);
-
-
-Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth');
-Route::post('dashboard', [DashboardController::class, 'tester']);
-
-// Route::get('dashboard', [DashboardController::class, 'index']);
-
-// Login Tab
-// Route::get('dashboard', [CustomAuthController::class, 'dasboard']);
-// Route::get('login', [CustomAuthController::class, 'index'])->name('login');
-// Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
-// Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
-// Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
-// Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
-
 Route::get('register', [RegisterController::class, 'index']);
+Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('control', [CheckController::class, 'index']);
+Route::get('logout', [LoginController::class, 'logout']);
+Route::get('result', [PagesController::class, 'result']);
+
+
+
+// Authenticate POST
+Route::post('login', [LoginController::class, 'authenticate']);
 Route::post('register', [RegisterController::class, 'store']);
-
-
-Route::post('result', [DashboardController::class, 'generateResult']);
+Route::post('dashboard', [DashboardController::class, 'tester']);
 Route::post('tester', [DashboardController::class, 'tester']);
-
-Route::get('/result', [PagesController::class, 'result']);

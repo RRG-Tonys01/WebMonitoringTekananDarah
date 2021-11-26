@@ -20,7 +20,6 @@
     <title>@yield('title')</title>
   </head>
   <body>
-    {{-- @include('navigation.navbar') --}}
     @yield('mainbody')
   </body>
 </html>

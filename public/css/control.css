@@ -1,0 +1,149 @@
+html {
+    background: fixed;
+    background-color: wheat;
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: white;
+}
+
+main {
+    height: max-content;
+    background-color: wheat;
+}
+
+.wel1 {
+    margin-top: 1em;
+}
+
+.hasilpg {
+    text-align: center;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.gejala1 {
+    padding: 1em;
+    background-color: ivory;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.welcome {
+    text-align: center;
+    background-color: salmon;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding-top: 3%;
+    margin-bottom: 2em;
+    text-decoration: none;
+    color: white;
+}
+
+.welcome a {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 1em;
+}
+
+.dashboard {
+    justify-items: center;
+}
+
+.tes {
+    margin-top: auto;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    height: 102.5%;
+}
+.artikel1 {
+    margin-bottom: 2em;
+}
+
+.inputbox {
+    font-size: 20px;
+}
+
+.history {
+    margin-top: 1em;
+}
+
+.hist1 {
+    padding-top: 2px;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-top: 0.75em;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.keterangan {
+    margin-top: 2em;
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.keterangan ul li {
+    list-style: none;
+}
+
+.center {
+    justify-content: center;
+    margin-bottom: 2em;
+    background-color: #c4c4c4;
+    border: 1px solid rgb(19, 20, 20);
+    border-radius: 20px;
+    height: 54em;
+}
+
+.center .input1 {
+    margin-top: 2em;
+    padding-bottom: 2em;
+    margin-left: 2em;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.inputForm {
+    max-width: max-content;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: salmon;
+}
+
+.headerForm h2 {
+    padding: 10px;
+}
+
+.bt1 {
+    padding-top: 1em;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #4caf50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Modal Css */
