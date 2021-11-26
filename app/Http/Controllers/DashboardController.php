@@ -2,13 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Control;
-use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
@@ -16,6 +11,15 @@ class DashboardController extends Controller
     public function index()
     {
         if (Auth::check()) {
+            // $riwayat = DB::table('controls')
+            //     ->select('siastolik', 'diastolik', 'c_nama', 'created_at')
+            //     ->join('rules', 'controls.ruleID', '=', 'rules.ruleID')
+            //     ->where('id', '=', Auth::user()->id)
+            //     ->get();
+            // return view('auth.dashboard', compact($riwayat));
+            // return view('auth.dashboard', ['riawyat' => $riwayat]);
+
+
             return view('auth.dashboard');
         }
     }

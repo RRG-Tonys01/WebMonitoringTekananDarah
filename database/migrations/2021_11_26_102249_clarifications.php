@@ -2,11 +2,10 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class Klasifikasis extends Migration
+class Clarifications extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +14,6 @@ class Klasifikasis extends Migration
      */
     public function up()
     {
-
         $kode = array(
             'K01', 'K02', 'K03', 'K04', 'K05', 'K06', 'K07', 'K08'
         );
@@ -27,21 +25,21 @@ class Klasifikasis extends Migration
             'Hipertensi Emergensi'
         );
 
-        if (!Schema::hasTable('klasifikasis')) {
-            Schema::create('klasifikasis', function (Blueprint $table) {
+        if (!Schema::hasTable('clarifications')) {
+            Schema::create('clarifications', function (Blueprint $table) {
                 $table->engine = 'InnoDB';
-                $table->string('k_kode', 25)->index();
-                $table->string('k_nama', 255);
+                $table->string('c_kode', 25)->index();
+                $table->string('c_nama', 255);
                 $table->timestamps();
             });
 
             $i = 0;
 
             foreach ($kode as $k_kode) {
-                DB::table('klasifikasis')->insert(
+                DB::table('clarifications')->insert(
                     [
-                        'k_kode' => $k_kode,
-                        'k_nama' => $nama[$i]
+                        'c_kode' => $k_kode,
+                        'c_nama' => $nama[$i]
                     ]
                 );
                 $i++;

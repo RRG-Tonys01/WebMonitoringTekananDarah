@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Stat extends Model
+class Rule extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
+
+    // protected $primaryKey = 'kode_user';
 
     /**
      * The attributes that are mass assignable.
@@ -17,12 +19,9 @@ class Stat extends Model
      * @var string[]
      */
     protected $fillable = [
-        'kode_status',
-        'nama_status',
-        'sistolik_minimum',
-        'sistolik_maxmimum',
-        'diastolik_maxmimum',
-        'diastolik_maxmimum',
+        'rulesID',
+        'c_kode',
+        'd_kode',
     ];
 
     /**

@@ -38,6 +38,22 @@
                     <h2>Welcome, {{Auth::user()->nama;}}</h2>
                     <br>
                     <div class='box-container'>
+                        {{-- @if (count($riwayat) != 0){
+                            @foreach ($riwayat as $item)
+                                <div class='box'>
+                                    <br>
+                                    <p>Tanggal: {{$item->'created_at'}}</p>
+                                    <p>Tekanan Sistolik : {{$item->'siastolik'}} mmHg</p>
+                                    <p>Tekanan Diastolik: {{$item->'diastolik'}} mmHg</p>
+                                    <p>Klasifikasi: {{$item->'c_nama'}}</p>
+                                    <br>
+                                    <div class='line'></div>
+                                </div>
+                            @endforeach
+                        }
+                        @else
+                            <h1> Kamu belum memiliki Riwayat Tekanan Darah</h1>
+                        @endif --}}
                         <div class='box'>
                             <br>
                             <p>Tanggal: mm/dd/yyyy</p>

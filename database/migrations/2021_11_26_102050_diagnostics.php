@@ -5,7 +5,8 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class Gejalas extends Migration
+
+class Diagnostics extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +15,6 @@ class Gejalas extends Migration
      */
     public function up()
     {
-
         $kode = array(
             'G01', 'G02', 'G03', 'G04', 'G05',
             'G06', 'G07', 'G08', 'G09', 'G10',
@@ -53,19 +53,20 @@ class Gejalas extends Migration
 
 
 
-        if (!Schema::hasTable('gejalas')) {
-            Schema::create('gejalas', function (Blueprint $table) {
-                $table->string('g_kode', 25);
-                $table->string('g_nama', 255);
+        if (!Schema::hasTable('diagnostics')) {
+            Schema::create('diagnostics', function (Blueprint $table) {
+                $table->engine = 'InnoDB';
+                $table->string('d_kode', 25)->index();
+                $table->string('d_nama', 255);
             });
 
             $i = 0;
 
             foreach ($kode as $kode_gejala) {
-                DB::table('gejalas')->insert(
+                DB::table('diagnostics')->insert(
                     [
-                        'g_kode' => $kode_gejala,
-                        'g_nama' => $nama[$i]
+                        'd_kode' => $kode_gejala,
+                        'd_nama' => $nama[$i]
                     ]
                 );
                 $i++;
@@ -80,7 +81,6 @@ class Gejalas extends Migration
      */
     public function down()
     {
-        //
-        Schema::dropIfExists('gejalas');
+        Schema::dropIfExists('diagnostics');
     }
 }
