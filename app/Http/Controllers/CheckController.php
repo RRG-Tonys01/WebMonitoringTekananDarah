@@ -14,7 +14,16 @@ class CheckController extends Controller
     {
         return view('auth.control');
     }
-
+    public function arraytostrings($s,$d,$array){
+        $concon = $s.", ".$d;
+        if($array !=null){
+            foreach($array as $i){
+                $concon = $concon.", ".$i;
+            }
+        }
+        // echo $concon;
+        return $concon;
+    }
     public function generateResult(Request $request)
     {
         $hasil = $request->validate([
@@ -26,72 +35,23 @@ class CheckController extends Controller
         // dd($hasil);
         $siastolik = $this->generateSiastolik($hasil['siastolik']);
         $diastolik = $this->generateDiastolik($hasil['diastolik']);
-
-        $rules = 'None';
-
-        if ($siastolik == 'G01' && $diastolik == 'G02') {
-            if (Rule::where('d_code', ($siastolik . ", " . $diastolik))->exists()) {
-                $rules = 'R01';
+        
+        $diag = isset($hasil['diagnostics']) ? $hasil['diagnostics'] : null;
+        $oo = $this->arraytostrings($siastolik,$diastolik,$diag);
+        $results = Rule::where('d_code', ($oo))->get()->first();
+        // dd($results);
+        
+        if(isset($results)){
+            if ($this->insertData($hasil['siastolik'], $hasil['diastolik'], $results['rulesID'])) {
+                $getHasil = DB::table('rules')
+                    ->select('clarifications.c_nama')
+                    ->join('clarifications', 'rules.c_kode', '=', 'clarifications.c_kode')
+                    ->where('rulesID', '=', $results['rulesID'])
+                    ->get();
+    
+                // dd($getHasil);
+                return view('auth.result', ['hasil' => $getHasil]);
             }
-        } elseif ($siastolik == 'G03' && $diastolik == 'G04') {
-            if (Rule::where('d_code', ($siastolik . ", " . $diastolik))->exists()) {
-                $rules = 'R02';
-            }
-        } elseif ($siastolik == 'G05' && $diastolik == 'G06') {
-            if (in_array('G17', $hasil['diagnostics'])) {
-                if (Rule::where('d_code', ($siastolik . ", " . $diastolik . ", G17"))->exists()) {
-                    $rules = 'R03';
-                }
-            }
-        } elseif ($siastolik == 'G07' && $diastolik == 'G08') {
-            if (in_array('G15, G17', $hasil['diagnostics'])) {
-                if (Rule::where('d_code', ($siastolik . ", " . $diastolik . ", G15, G17"))->exists()) {
-                    $rules = 'R04';
-                }
-            }
-        } elseif ($siastolik == 'G09' && $diastolik == 'G10') {
-            if (in_array('G15, G16, G17', $hasil['diagnostics'])) {
-                if (Rule::where('d_code', ($siastolik . ", " . $diastolik . ", G15, G16, G17"))->exists()) {
-                    $rules = 'R05';
-                }
-            }
-        } elseif ($siastolik == 'G09' && $diastolik == 'G10') {
-            if (in_array('G15, G16, G17', $hasil['diagnostics'])) {
-                if (Rule::where('d_code', ($siastolik . ", " . $diastolik . ", G15, G16, G17"))->exists()) {
-                    $rules = 'R05';
-                }
-            }
-        } elseif ($siastolik == 'G11' && $diastolik == 'G12') {
-            if (in_array('G15, G16, G20', $hasil['diagnostics'])) {
-                if (Rule::where('d_code', ($siastolik . ", " . $diastolik . ", G15, G16, G20"))->exists()) {
-                    $rules = 'R06';
-                }
-            }
-        } elseif ($siastolik == 'G11' && $diastolik == 'G12') {
-            if (in_array('G21, G22', $hasil['diagnostics'])) {
-                if (Rule::where('d_code', ($siastolik . ", " . $diastolik . ", G21, G22"))->exists()) {
-                    $rules = 'R07';
-                }
-            }
-        } elseif ($siastolik == 'G13' && $diastolik == 'G14') {
-            if (in_array('G18, G22, G23, G24, G25', $hasil['diagnostics'])) {
-                if (Rule::where('d_code', ($siastolik . ", " . $diastolik . ", G18, G22, G23, G24, G25"))->exists()) {
-                    $rules = 'R08';
-                }
-            }
-        } else {
-            $rules = 'None';
-        }
-
-        if ($this->insertData($hasil['siastolik'], $hasil['diastolik'], $rules)) {
-            $getHasil = DB::table('rules')
-                ->select('clarifications.c_nama')
-                ->join('clarifications', 'rules.c_kode', '=', 'clarifications.c_kode')
-                ->where('rulesID', '=', $rules)
-                ->get();
-
-            // dd($getHasil);
-            return view('auth.result', ['hasil' => $getHasil]);
         } else {
             return view('auth.control')->with('Input Failed', 'message');
         }

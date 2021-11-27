@@ -88,7 +88,7 @@
                                 <div class="inputbox">
                                     <input class="form-check-input" type="checkbox" name="diagnostics[]" id="G25" value="G25">
                                     <label class="form-check-label" for="G25">Apakah anda merasa mengalami gangguan kesadaran?</label>
-                                    <input type="text" value="" hidden name="diagnostics[]">
+                                    <!-- <input type="text" value="" hidden name="diagnostics[]"> -->
                                 </div>
                             </div>
 

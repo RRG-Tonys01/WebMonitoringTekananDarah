@@ -4,10 +4,13 @@
 
 @section('css')
 <link rel="stylesheet" href="/css/home.css">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 @endsection
 
 @section('mainbody')
 
+<div data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
 <div class="hold">
   <div class="header">
     <div class="container">
@@ -33,10 +36,10 @@
   </div>
 </div>
 
-<div class="section">
+<div class="section" data-aos="fade-left" data-aos-duration="800">
   <div class="container">
     <h1 class="service">Apa Itu Hipertensi???</h1>
-    <hr class="brake mx-auto">
+    <hr class="brake mx-auto" data-aos="fade-left" data-aos-delay="100">
     <p> Hipertensi adalah suatu gangguan yang terjadi pada pembuluh darah yang dapat menyebabkan suplai oksigen
       dan nutrisi yang diperlukan oleh tubuh kita menjadi terhambat. Hipertensi sering juga disebut sebagai Silent Killer,
       penyakit ini termasuk penyakit yang mematikan karena bisa datang tanpa disadari oleh pengidapnya. Pada umumnya,
@@ -47,10 +50,10 @@
   <div class="group"></div>
 </div>
 
-<div class="section bg">
+<div class="section bg" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
   <div class="container">
     <h1>Klasifikasi Tekanan Darah</h1>
-    <div class="col two bg margin extrapad">
+    <div class="col two bg margin extrapad" data-aos="fade-left" data-aos-delay="100">
       <h1 class="icon side"><u>N</u></h1>
       <span class="feature side">Normal - 120/80 mmHg </span>
       <p class="side">
@@ -59,7 +62,7 @@
         menjaga berat badan ideal, hingga berolahraga teratur
       </p>
     </div>
-    <div class="col two bg margin extrapad">
+    <div class="col two bg margin extrapad" data-aos="fade-left" data-aos-delay="200">
       <h1 class="icon side"><u>P</u></h1>
       <span class="feature side">Prehipertensi - 139/89 mmHg</span>
       <p class="side">
@@ -69,7 +72,7 @@
       </p>
     </div>
     <div class="group margin"></div>
-    <div class="col two bg margin extrapad">
+    <div class="col two bg margin extrapad" data-aos="fade-left" data-aos-delay="300">
       <h1 class="icon side"><u>H</u></h1>
       <span class="feature side">Hipertensi - 140/90 mmHg</span>
       <p class="side">
@@ -78,7 +81,7 @@
         pada organ menjadi lebih tinggi.
       </p>
     </div>
-    <div class="col two bg margin extrapad">
+    <div class="col two bg margin extrapad" data-aos="fade-left" data-aos-delay="400">
       <h1 class="icon side"><u>H</u></h1>
       <span class="feature side">Hipertensi 2 - 160/100 mmHg</span>
       <p class="side">
@@ -90,7 +93,7 @@
     <div class="group"></div>
   </div>
 </div>
-
+</div>
 {{--
 <div class="section bg">
     <div class="container">
@@ -228,4 +231,7 @@
       </div>
     </div>
   </div> --}}
+  <script>
+    AOS.init();
+</script>
 @endsection
