@@ -55,7 +55,7 @@
                         </div>
                         <div class="btns">
                             <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-                            <a href="#" class="btn btn-danger btn-lg">kembali</a>
+                            <a href="{{url('/')}}" class="btn btn-danger btn-lg">kembali</a>
                         </div>
                     </form>
                 </div>

@@ -54,7 +54,7 @@
                                 <a href="#" class="btn btn-danger btn-lg">kembali</a>
                             </div>
                             <div class="mt-4">
-                                <p>Belum punya akun? <a href="#">Buat baru</a></p>
+                                <p>Belum punya akun? <a href="{{url('/register')}}">Buat baru</a></p>
                             </div>
                         </form>
                     </div>

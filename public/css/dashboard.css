@@ -19,6 +19,7 @@ body {
 .box-row,
 .buttons-container {
     flex-direction: row;
+    overflow: auto;
 }
 
 .top-left-sidebar-link,
