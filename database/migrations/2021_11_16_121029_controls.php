@@ -19,6 +19,7 @@ class Controls extends Migration
                 $table->integer('siastolik');
                 $table->integer('diastolik');
                 $table->string('rulesID', 10);
+                $table->date('tanggal');
                 $table->timestamps();
                 $table->foreign('id')->references('id')->on('users');
                 $table->foreign('rulesID')->references('rulesID')->on('rules');

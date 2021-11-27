@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Rule;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -24,48 +25,105 @@ class Rules extends Migration
             'K05', 'K06', 'K07', 'K08',
         );
 
-        $gejala = array(
-            ['G01', 'G02'],
-            ['G03', 'G04'],
-            ['G05', 'G06', 'G17'],
-            ['G07', 'G08', 'G15', 'G17'],
-            ['G09', 'G10', 'G15', 'G16', 'G17'],
-            ['G11', 'G12', 'G15', 'G16', 'G20'],
-            ['G11', 'G12', 'G21', 'G22'],
-            ['G13', 'G14', 'G18', 'G22', 'G23', 'G24', 'G25']
-        );
+        // $gejala = array(
+        //     ['G01', 'G02'],
+        //     ['G03', 'G04'],
+        //     ['G05', 'G06', 'G17'],
+        //     ['G07', 'G08', 'G15', 'G17'],
+        //     ['G09', 'G10', 'G15', 'G16', 'G17'],
+        //     ['G11', 'G12', 'G15', 'G16', 'G20'],
+        //     ['G11', 'G12', 'G21', 'G22'],
+        //     ['G13', 'G14', 'G18', 'G22', 'G23', 'G24', 'G25']
+        // );
 
         if (!Schema::hasTable('rules')) {
             Schema::create('rules', function (Blueprint $table) {
                 $table->engine = 'InnoDB';
                 $table->string('rulesID', 10)->index();
                 $table->string('c_kode', 10);
-                $table->string('d_code', 10);
+                $table->string('d_code', 255);
                 $table->timestamps();
                 $table->foreign('c_kode')->references('c_kode')->on('clarifications');
             });
 
-            // $i = 0;
-            // foreach ($id as $rule) {
-            //     DB::table('rules')->insert(
-            //         [
-            //             'rulesID' => $rule,
-            //             'c_kode' => $kode[$i],
-            //             'd_code' => $gejala
-            //         ]
-            //     );
-            //     $i++;
-            // }
+            $i = 0;
+            foreach ($id as $rule) {
+                if ($rule == 'R01') {
+                    DB::table('rules')->insert(
+                        [
+                            'rulesID' => $rule,
+                            'c_kode' => $kode[$i],
+                            'd_code' => 'G01, G02'
+                        ]
+                    );
+                    $i++;
+                } elseif ($rule == 'R02') {
+                    DB::table('rules')->insert(
+                        [
+                            'rulesID' => $rule,
+                            'c_kode' => $kode[$i],
+                            'd_code' => 'G03, G04'
+                        ]
+                    );
+                    $i++;
+                } elseif ($rule == 'R03') {
+                    DB::table('rules')->insert(
+                        [
+                            'rulesID' => $rule,
+                            'c_kode' => $kode[$i],
+                            'd_code' => 'G05, G06, G17'
+                        ]
+                    );
+                    $i++;
+                } elseif ($rule == 'R04') {
+                    DB::table('rules')->insert(
+                        [
+                            'rulesID' => $rule,
+                            'c_kode' => $kode[$i],
+                            'd_code' => 'G07, G08, G15, G17'
+                        ]
+                    );
+                    $i++;
+                } elseif ($rule == 'R05') {
+                    DB::table('rules')->insert(
+                        [
+                            'rulesID' => $rule,
+                            'c_kode' => $kode[$i],
+                            'd_code' => 'G09, G10, G15, G16, G17'
+                        ]
+                    );
+                    $i++;
+                } elseif ($rule == 'R06') {
+                    DB::table('rules')->insert(
+                        [
+                            'rulesID' => $rule,
+                            'c_kode' => $kode[$i],
+                            'd_code' => 'G11, G12, G15, G16, G20'
+                        ]
+                    );
+                    $i++;
+                } elseif ($rule == 'R07') {
+                    DB::table('rules')->insert(
+                        [
+                            'rulesID' => $rule,
+                            'c_kode' => $kode[$i],
+                            'd_code' => 'G11, G12, G21, G22'
+                        ]
+                    );
+                    $i++;
+                } elseif ($rule == 'R08') {
+                    DB::table('rules')->insert(
+                        [
+                            'rulesID' => $rule,
+                            'c_kode' => $kode[$i],
+                            'd_code' => 'G13, G14, G18, G22, G23, G24, G25'
+                        ]
+                    );
+                    $i++;
+                }
+            }
 
-            // for ($k = 0; $k < count($gejala); $k++) {
-            //     for ($j = 0; $j < count($gejala[$k]); $j++) {
-            //         DB::table('rules')->where('rulesID', $k)->update([
-            //             'd_code' => $gejala[$k][$j]
-            //         ]);
-            //         $j++;
-            //     }
-            //     $k++;
-            // }
+
             // $table->integer('K_id');
             // $table->integer('G01');
             // $table->integer('G02');

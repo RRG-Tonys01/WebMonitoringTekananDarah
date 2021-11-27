@@ -100,6 +100,8 @@ ul.nav li a {
 .section .footer {
     /* background: #333; */
     background-image: url("/images/blood.jpg");
+    /* background-repeat: none;
+    background-size: fixed; */
 }
 
 .slidercontent {

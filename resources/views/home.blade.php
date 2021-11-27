@@ -91,6 +91,7 @@
     </div>
 </div>
 
+{{--
 <div class="section bg">
     <div class="container">
       <h1>About Us</h1>
@@ -101,17 +102,17 @@
         <p>00000041062</p>
       </div>
       <div class="col three bg nopad pointer">
-        <div class="imgholder"></div>
+        <div class="imgholder" style="background-image: url('/images/ppr.jpg');></div>
         <h1 class="feature">Muhammad Rafi Sofyan</h1>
         <p>00000037957</p>
       </div>
       <div class="col three bg nopad pointer">
-        <div class="imgholder"></div>
+        <div class="imgholder" style="background-image: url('/images/ppt.jpg');"></div>
         <h1 class="feature">Toni Sembiring</h1>
         <p>00000040075</p>
       </div>
     </div>
-</div>
+</div> --}}
   {{-- <div class="section">
     <div class="container">
       <h1>Wow? Wow wow wow wow!</h1>

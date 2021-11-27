@@ -35,5 +35,4 @@ Route::get('result', [PagesController::class, 'result']);
 // Authenticate POST
 Route::post('login', [LoginController::class, 'authenticate']);
 Route::post('register', [RegisterController::class, 'store']);
-Route::post('dashboard', [DashboardController::class, 'tester']);
-Route::post('tester', [DashboardController::class, 'tester']);
+Route::post('control', [CheckController::class, 'generateResult']);

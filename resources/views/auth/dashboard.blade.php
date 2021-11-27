@@ -13,14 +13,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
 </head>
 
 <body>
     <div class='main-container'>
         <div class='container'>
             <div class='left-sidebar'>
-                <h2>Dashboard</h2>
+                <h2 style="background-color:salmon; color:white;">Dashboard</h2>
                 <div>
                     <ion-icon name="add-circle"></ion-icon>
                     <a class='top-left-sidebar-link' href="{{url('/control')}}">Kontrol</a>
@@ -34,27 +34,27 @@
                     <a class='left-sidebar-links' href='{{url('/logout')}}'>Log Out</a>
                 </div>
             </div>
-            <div class='dashboard'>
+            <div class='dashboard style'>
                     <h2>Welcome, {{Auth::user()->nama;}}</h2>
                     <br>
                     <div class='box-container'>
-                        {{-- @if (count($riwayat) != 0){
+                        @if (count($riwayat) != 0)
                             @foreach ($riwayat as $item)
                                 <div class='box'>
                                     <br>
-                                    <p>Tanggal: {{$item->'created_at'}}</p>
-                                    <p>Tekanan Sistolik : {{$item->'siastolik'}} mmHg</p>
-                                    <p>Tekanan Diastolik: {{$item->'diastolik'}} mmHg</p>
-                                    <p>Klasifikasi: {{$item->'c_nama'}}</p>
+                                    {{-- <p>Tanggal: {{$item->created_at->format('d M Y')}}</p> --}}
+                                    <p>Tanggal: {{strftime("%d %b %Y",strtotime($item->created_at))}}</p>
+                                    <p>Tekanan Sistolik : {{$item->siastolik}} mmHg</p>
+                                    <p>Tekanan Diastolik: {{$item->diastolik}} mmHg</p>
+                                    <p>Klasifikasi: {{$item->c_nama}}</p>
                                     <br>
                                     <div class='line'></div>
                                 </div>
                             @endforeach
-                        }
                         @else
-                            <h1> Kamu belum memiliki Riwayat Tekanan Darah</h1>
-                        @endif --}}
-                        <div class='box'>
+                            <h1> Kamu belum memiliki Pengecekan</h1>
+                        @endif
+                        {{-- <div class='box'>
                             <br>
                             <p>Tanggal: mm/dd/yyyy</p>
                             <p>Tekanan Sistolik : xx mmHg</p>
@@ -62,11 +62,11 @@
                             <p>Klasifikasi: N</p>
                             <br>
                             <div class='line'></div>
-                            {{-- <div class='buttons-container'>
+                            <div class='buttons-container'>
                                 <a class='buttons' href='#'>Install</a>
                                 <a class='buttons' href='#'>Share</a>
-                            </div> --}}
-                        </div>
+                            </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

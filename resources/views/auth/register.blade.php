@@ -52,7 +52,7 @@
                 @error('password')
                 <div class="invalid-feedback">
                     {{ $message }}
-                </div>
+            </div>
             @enderror
             </div>
             <div class="inputbox">
