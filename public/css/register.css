@@ -1,0 +1,43 @@
+html{
+    background-color: wheat;
+}
+
+.container {
+    background-color: #c4c4c4;
+    border: 1px solid black;
+}
+
+.judul{
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: salmon;
+    color: white;
+    border-bottom: 1px solid black;
+}
+
+.register{
+    background-color: wheat;
+    display: flex;
+    align-items: center;
+}
+
+.inputForm{
+    padding: 2em;
+}
+
+.separ{
+    border: 1px solid black;
+}
+
+.btns{
+    padding-top: 1em;
+}
+
+.imgs img{
+    border: 1px solid black;
+}
+
+.copyright a, .copyright a:hover {
+    text-decoration: none;
+    color: black;
+}

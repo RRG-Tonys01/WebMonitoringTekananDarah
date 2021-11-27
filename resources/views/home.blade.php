@@ -9,86 +9,86 @@
 @section('mainbody')
 
 <div class="hold">
-    <div class="header">
-      <div class="container">
-        <div id="logo">
-            <h3 style="text-align: center">Blood Control</h3>
-        </div>
-        <ul class="nav">
-          <li><a href="{{url('/')}}">Home</a></li>
-          <li><a href="{{url('/about')}}">About</a></li>
-          <li><a href="{{url('/login')}}">Login</a></li>
-        </ul>
-      </div>
-    </div>
-</div>
-
-<div class="section">
-    <div class="slider">
-      <div class="container slidercontent">
-        <h1 class="hero">Monitoring Tekanan Darah</h1>
-        <h2 class="hero">Ayo Kontrol Tekanan Darahmu Sekarang Juga</h2>
-        <div class="call"><span><a href="{{ url('/login')}}"> Kontrol Sekarang </a></span></div>
-      </div>
-    </div>
-</div>
-
-<div class="section">
+  <div class="header">
     <div class="container">
-        <h1 class="service">Apa Itu Hipertensi???</h1>
-        <hr class="brake mx-auto">
-        <p> Hipertensi adalah suatu gangguan yang terjadi pada pembuluh darah yang dapat menyebabkan suplai oksigen
-            dan nutrisi yang diperlukan oleh tubuh kita menjadi terhambat. Hipertensi sering juga disebut sebagai Silent Killer,
-            penyakit ini termasuk penyakit yang mematikan karena bisa datang tanpa disadari oleh pengidapnya. Pada umumnya,
-            hipertensi biasanya disebabkan oleh keturunan, pola hidup yang tidak sehat, dan juga karena konsumsi berlebihan
-            makanan yang mengandung garam, alkohol, dan berlemak.
-        </p>
+      <div id="logo">
+        <h3 style="text-align: center">Blood Control</h3>
+      </div>
+      <ul class="nav">
+        <li><a href="{{url('/')}}">Home</a></li>
+        <li><a href="{{url('/about')}}">About</a></li>
+        <li><a href="{{url('/login')}}">Login</a></li>
+      </ul>
     </div>
-    <div class="group"></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="slider">
+    <div class="container slidercontent">
+      <h1 class="hero">Monitoring Tekanan Darah</h1>
+      <h2 class="hero">Ayo Kontrol Tekanan Darahmu Sekarang Juga</h2>
+      <div class="call"><span><a href="{{ url('/login')}}"> Kontrol Sekarang </a></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="container">
+    <h1 class="service">Apa Itu Hipertensi???</h1>
+    <hr class="brake mx-auto">
+    <p> Hipertensi adalah suatu gangguan yang terjadi pada pembuluh darah yang dapat menyebabkan suplai oksigen
+      dan nutrisi yang diperlukan oleh tubuh kita menjadi terhambat. Hipertensi sering juga disebut sebagai Silent Killer,
+      penyakit ini termasuk penyakit yang mematikan karena bisa datang tanpa disadari oleh pengidapnya. Pada umumnya,
+      hipertensi biasanya disebabkan oleh keturunan, pola hidup yang tidak sehat, dan juga karena konsumsi berlebihan
+      makanan yang mengandung garam, alkohol, dan berlemak.
+    </p>
+  </div>
+  <div class="group"></div>
 </div>
 
 <div class="section bg">
-    <div class="container">
-        <h1>Klasifikasi Tekanan Darah</h1>
-        <div class="col two bg margin extrapad">
-            <h1 class="icon side"><u>N</u></h1>
-            <span class="feature side">Normal - 120/80 mmHg </span>
-            <p class="side">
-                Tekanan darah normal perlu dijaga setiap harinya. Caranya dengan
-                menerapkan pola hidup sehat, mulai dari mengonsumsi makanan sehat,
-                menjaga berat badan ideal, hingga berolahraga teratur
-            </p>
-        </div>
-        <div class="col two bg margin extrapad">
-            <h1 class="icon side"><u>P</u></h1>
-            <span class="feature side">Prehipertensi - 139/89 mmHg</span>
-            <p class="side">
-                Kategori ini tidak dianggap sebagai gangguan namun mengindikasikan
-                adanya kecenderungan untuk meningkat ke klasifikasi hipertensi di
-                tahun-tahun mendatang.
-            </p>
-        </div>
-        <div class="group margin"></div>
-        <div class="col two bg margin extrapad">
-            <h1 class="icon side"><u>H</u></h1>
-            <span class="feature side">Hipertensi - 140/90 mmHg</span>
-            <p class="side">
-                Tekanan darah sistolik 140-159 mmHg atau tekanan darah diastolik
-                90-99 mmHg. Penderita memerlukan pengobatan karena kerusakan
-                pada organ menjadi lebih tinggi.
-            </p>
-        </div>
-        <div class="col two bg margin extrapad">
-            <h1 class="icon side"><u>H</u></h1>
-            <span class="feature side">Hipertensi 2 - 160/100 mmHg</span>
-            <p class="side">
-                Tekanan darah sistolik ≥ 160 mmHg atau tekanan darah diastolik ≥ 100
-                mmHg. Penderita biasanya memerlukan lebih dari satu obat, kerusakan
-                organ tubuh juga mungkin sudah terjadi.
-            </p>
-        </div>
-        <div class="group"></div>
+  <div class="container">
+    <h1>Klasifikasi Tekanan Darah</h1>
+    <div class="col two bg margin extrapad">
+      <h1 class="icon side"><u>N</u></h1>
+      <span class="feature side">Normal - 120/80 mmHg </span>
+      <p class="side">
+        Tekanan darah normal perlu dijaga setiap harinya. Caranya dengan
+        menerapkan pola hidup sehat, mulai dari mengonsumsi makanan sehat,
+        menjaga berat badan ideal, hingga berolahraga teratur
+      </p>
     </div>
+    <div class="col two bg margin extrapad">
+      <h1 class="icon side"><u>P</u></h1>
+      <span class="feature side">Prehipertensi - 139/89 mmHg</span>
+      <p class="side">
+        Kategori ini tidak dianggap sebagai gangguan namun mengindikasikan
+        adanya kecenderungan untuk meningkat ke klasifikasi hipertensi di
+        tahun-tahun mendatang.
+      </p>
+    </div>
+    <div class="group margin"></div>
+    <div class="col two bg margin extrapad">
+      <h1 class="icon side"><u>H</u></h1>
+      <span class="feature side">Hipertensi - 140/90 mmHg</span>
+      <p class="side">
+        Tekanan darah sistolik 140-159 mmHg atau tekanan darah diastolik
+        90-99 mmHg. Penderita memerlukan pengobatan karena kerusakan
+        pada organ menjadi lebih tinggi.
+      </p>
+    </div>
+    <div class="col two bg margin extrapad">
+      <h1 class="icon side"><u>H</u></h1>
+      <span class="feature side">Hipertensi 2 - 160/100 mmHg</span>
+      <p class="side">
+        Tekanan darah sistolik ≥ 160 mmHg atau tekanan darah diastolik ≥ 100
+        mmHg. Penderita biasanya memerlukan lebih dari satu obat, kerusakan
+        organ tubuh juga mungkin sudah terjadi.
+      </p>
+    </div>
+    <div class="group"></div>
+  </div>
 </div>
 
 {{--
@@ -102,7 +102,7 @@
         <p>00000041062</p>
       </div>
       <div class="col three bg nopad pointer">
-        <div class="imgholder" style="background-image: url('/images/ppr.jpg');></div>
+        <div class="imgholder" style="background-image: url('/images/ppr.jpg');"></div>
         <h1 class="feature">Muhammad Rafi Sofyan</h1>
         <p>00000037957</p>
       </div>
@@ -113,7 +113,7 @@
       </div>
     </div>
 </div> --}}
-  {{-- <div class="section">
+{{-- <div class="section">
     <div class="container">
       <h1>Wow? Wow wow wow wow!</h1>
       <h2>Wow</h2>
@@ -151,7 +151,7 @@
       <div class="group margin"></div>
     </div>
   </div> --}}
-  {{-- <div class="section bg">
+{{-- <div class="section bg">
     <div class="container">
       <h1>Wow</h1>
       <h2>Wow wow wow wow</h2>
@@ -179,7 +179,7 @@
       <div class="group"></div>
     </div>
   </div> --}}
-  {{-- <div class="section">
+{{-- <div class="section">
     <div class="container">
       <div class="col two">
         <h1 class="icon">[]</h1>

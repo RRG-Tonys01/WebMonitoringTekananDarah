@@ -27,9 +27,7 @@ class CheckController extends Controller
         $siastolik = $this->generateSiastolik($hasil['siastolik']);
         $diastolik = $this->generateDiastolik($hasil['diastolik']);
 
-
-
-        $rules = '';
+        $rules = 'None';
 
         if ($siastolik == 'G01' && $diastolik == 'G02') {
             if (Rule::where('d_code', ($siastolik . ", " . $diastolik))->exists()) {
@@ -95,7 +93,7 @@ class CheckController extends Controller
             // dd($getHasil);
             return view('auth.result', ['hasil' => $getHasil]);
         } else {
-            return redirect('auht.control')->with('Input Failed');
+            return view('auth.control')->with('Input Failed', 'message');
         }
     }
 

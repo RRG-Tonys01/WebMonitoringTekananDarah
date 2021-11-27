@@ -1,64 +1,79 @@
-<link rel="stylesheet" href="/css/login.css">
+<!DOCTYPE html>
+<html lang="en">
 
-@if(session()->has('loginError'))
-    <div class="alaer alert-danger alert-dismissible fade show" role="alert">
-        {{session('loginError')}}
-        <button type="button" class="btn-close" data-bs-dismiss="aler" aria-label="Close"></button>
-    </div>
-@endif
-<div class="wrapBg">
-    <div class="center">
-        <h1>Register</h1>
-        <form method="POST" action="{{url('/login')}}">
-            @csrf
-            <div class="inputbox">
-                <input type="text" name="username" id="username" class="@error('username') is-invalid @enderror"
-                autofocus required value="{{old('username')}}">
-                @error('username')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
-                <span>Username</span>
-            </div>
-            <div class="inputbox">
-                <input type="text" name="nama" id="nama" class="@error('username') is-invalid @enderror"
-                required value="{{old('nama')}}">
-                <span>Nama Pengguna</span>
-                @error('nama')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div>
-            {{-- <select name="jk" id="jk" class="form-select" aria-label="pilih jenis kelamin">
-                <option selected>Jenis Kelamin</option>
-                <option value="Laki-Laki">Laki-Laki</option>
-                <option value="Perempuan">Perempuan</option>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/css/register.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
 
-            </select> --}}
-            <div class="inputbox">
-                    <input type="text" name="jk" id="jk" required>
-                    <span>Jenis Kelamin</span>
+<body>
+
+    <div class="register mt-5 mb-5">
+        <div class="container" data-aos="fade-right" data-aos-delay="700">
+            <div class="row text-center judul">
+                <h2>
+                    Registrasi
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <form action="post" class="inputForm">
+                        <div class="fillUp">
+                            <h3>Harap Masukkan Data Diri Anda</h3>
+                            <hr>
+                        </div>
+                        <div class="form-group">
+                            <label for="text" class="col col-form-label-lg">Username</label>
+                            <input type="text" class="form-control" id="text" name="text" placeholder="Input Username Anda">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col col-form-label-lg">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Input Password Anda">
+                        </div>
+                        <div class="form-group">
+                            <label for="gender" class="col col-form-label-lg">Jenis Kelamin</label>
+                            <select class="form-control" id="gender">
+                                <option value="ph" disabled selected>-Klik disini-</option>
+                                <option name="laki" value="Men">Laki-laki</option>
+                                <option name="perempuan" value="Women">Perempuan</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ttl" class="col col-form-label-lg">Tanggal lahir</label>
+                            <input type="date" class="form-control" id="ttl" name="ttl">
+                        </div>
+                        <div class="form-group">
+                            <label for="weight" class="col col-form-label-lg">Berat badan saat ini:</label>
+                            <input type="text" class="form-control" id="weight" name="weight">
+                        </div>
+                        <div class="btns">
+                            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            <a href="#" class="btn btn-danger btn-lg">kembali</a>
+                        </div>
+                    </form>
                 </div>
-            <div class="inputbox">
-                <input type="date" name="tanggalLahir" id="tanggalLahir" required>
-                <span>Tanggal Lahir</span>
+                <div class="col-md-7 text-center mt-5">
+                    <div class="imgs">
+                        <img src="https://res.cloudinary.com/dk0z4ums3/image/upload/v1618237197/attached_image/berapa-tekanan-darah-normal-orang-dewasa.jpg" alt="Regis" class="img-fluid mt-5">
+                    </div>
+                    <div class="copyright text-center mt-4">
+                        <h6><a href="#">Gamma 7 - IF541</a></h6>
+                    </div>
+                </div>
             </div>
-            <div class="inputbox">
-                <input type="password" name="password" id="password" class="@error('username') is-invalid @enderror"
-                required>
-                <span>Password</span>
-                @error('password')
-                <div class="invalid-feedback">
-                    {{ $message }}
-            </div>
-            @enderror
-            </div>
-            <div class="inputbox">
-                <button type="submit">Submit</button>
-                <a href="{{url('/login')}}">Kembali</a>
-            </div>
-        </form>
+        </div>
     </div>
-</div>
+
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
