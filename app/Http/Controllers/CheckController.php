@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Control as ModelsControl;
 use App\Models\Rule;
-use Controls;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -21,11 +20,14 @@ class CheckController extends Controller
         $hasil = $request->validate([
             'siastolik' => ['required'],
             'diastolik' => ['required'],
-            'diagnostics' => ['required']
+            'diagnostics' => ['nullable']
         ]);
 
+        // dd($hasil);
         $siastolik = $this->generateSiastolik($hasil['siastolik']);
         $diastolik = $this->generateDiastolik($hasil['diastolik']);
+
+
 
         $rules = '';
 
@@ -83,8 +85,17 @@ class CheckController extends Controller
             $rules = 'None';
         }
 
-        if ($this->insertData($siastolik, $diastolik, $rules)) {
-            return view('auth.result', ['hasil' => $rules]);
+        if ($this->insertData($hasil['siastolik'], $hasil['diastolik'], $rules)) {
+            $getHasil = DB::table('rules')
+                ->select('clarifications.c_nama')
+                ->join('clarifications', 'rules.c_kode', '=', 'clarifications.c_kode')
+                ->where('rulesID', '=', $rules)
+                ->get();
+
+            // dd($getHasil);
+            return view('auth.result', ['hasil' => $getHasil]);
+        } else {
+            return redirect('auht.control')->with('Input Failed');
         }
     }
 
@@ -132,17 +143,15 @@ class CheckController extends Controller
     public function insertData($siastolik, $diastolik, $rules)
     {
         if ($rules == 'None') {
-            return redirect('auht.control')->with('Input Failed');
+            return false;
         } else {
-            // $control = new App\Models\Controls;
-            $control = new Controls;
+            $control = new ModelsControl();
             $control->id = Auth::user()->id;
             $control->siastolik = $siastolik;
             $control->diastolik = $diastolik;
             $control->rulesID = $rules;
             $control->tanggal = '2021-11-10';
-            // $control->save();
-
+            $control->save();
             return true;
         }
     }

@@ -11,11 +11,6 @@ class PagesController extends Controller
         return view('home');
     }
 
-    public function result()
-    {
-        return view('auth.result');
-    }
-
     public function aboutIndex()
     {
         return view('about');

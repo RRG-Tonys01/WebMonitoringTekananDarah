@@ -15,13 +15,13 @@ class Controls extends Migration
     {
         if (!Schema::hasTable('controls')) {
             Schema::create('controls', function (Blueprint $table) {
-                $table->increments('id');
+                $table->integer('id')->unsigned();
                 $table->integer('siastolik');
                 $table->integer('diastolik');
                 $table->string('rulesID', 10);
                 $table->date('tanggal');
                 $table->timestamps();
-                $table->foreign('id')->references('id')->on('users');
+                $table->foreign('id')->references('id')->on('users')->onDelete('cascade');
                 $table->foreign('rulesID')->references('rulesID')->on('rules');
             });
         }
