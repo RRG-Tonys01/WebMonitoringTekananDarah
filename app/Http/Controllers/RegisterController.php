@@ -45,9 +45,6 @@ class RegisterController extends Controller
             // 'weight' => ['required'],
         ]);
 
-        // $validatedData['password'] = bcrypt($validatedData['password']);
-        // $validatedData['password'] = Hash::make($validatedData['password']);
-
         $users = new User;
         $users->username = $request->username;
         $users->nama = $request->nama;
@@ -55,10 +52,6 @@ class RegisterController extends Controller
         $users->tanggal_lahir = $request->ttl;
         $users->password = $request->password;
         $users->save();
-        // User::created($validatedData);
-        // dd(User::created($validatedData));
-        // dd("register berhasil");
-        // $request->session()->flash('successRegister', 'Register Berhasil!! Silahkan Login untuk melanjutkan');
         return redirect('/login')->with('successRegister', 'Register Berhasil! Silahkan Login');
     }
 }

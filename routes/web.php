@@ -26,6 +26,7 @@ Route::get('about', [PagesController::class, 'aboutIndex']);
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::get('register', [RegisterController::class, 'index']);
 Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('deletehistory', [DashboardController::class, 'delhistory'])->middleware('auth');
 Route::get('control', [CheckController::class, 'index']);
 Route::get('logout', [LoginController::class, 'logout']);
 Route::get('result', [PagesController::class, 'result']);

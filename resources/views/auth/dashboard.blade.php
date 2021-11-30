@@ -51,6 +51,7 @@
                         <p>Tekanan Diastolik: {{$item->diastolik}} mmHg</p>
                         <p>Klasifikasi: {{$item->c_nama}}</p>
                         <br>
+                        <a href="./deletehistory?DEL={{$item->created_at}}" class="left-sidebar-links">Hapus</a>
                         <div class='line'></div>
                     </div>
                     @endforeach
