@@ -24,14 +24,28 @@
             </div>
             <div class="row">
                 <div class="col-md-5">
-                    <form action="post" class="inputForm">
+                    <form method="post" class="inputForm" action="{{url('/register')}}">
+                    @csrf
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                         <div class="fillUp">
                             <h3>Harap Masukkan Data Diri Anda</h3>
                             <hr>
                         </div>
                         <div class="form-group">
-                            <label for="text" class="col col-form-label-lg">Username</label>
-                            <input type="text" class="form-control" id="text" name="text" placeholder="Input Username Anda">
+                            <label for="nama" class="col col-form-label-lg">Nama</label>
+                            <input type="text" class="form-control" id="nama" name="nama" placeholder="Input Nama Anda" value="{{old('nama')}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="username" class="col col-form-label-lg">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Input Username Anda" value="{{old('username')}}">
                         </div>
                         <div class="form-group">
                             <label for="password" class="col col-form-label-lg">Password</label>
@@ -39,20 +53,20 @@
                         </div>
                         <div class="form-group">
                             <label for="gender" class="col col-form-label-lg">Jenis Kelamin</label>
-                            <select class="form-control" id="gender">
+                            <select class="form-control" id="gender" name="gender">
                                 <option value="ph" disabled selected>-Klik disini-</option>
-                                <option name="laki" value="Men">Laki-laki</option>
-                                <option name="perempuan" value="Women">Perempuan</option>
+                                <option name="Laki-Laki" value="Laki-Laki">Laki-laki</option>
+                                <option name="Perempuan" value="Perempuan">Perempuan</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="ttl" class="col col-form-label-lg">Tanggal lahir</label>
-                            <input type="date" class="form-control" id="ttl" name="ttl">
+                            <input type="date" class="form-control" id="ttl" name="ttl" value="{{old('ttl')}}">
                         </div>
-                        <div class="form-group">
-                            <label for="weight" class="col col-form-label-lg">Berat badan saat ini:</label>
-                            <input type="text" class="form-control" id="weight" name="weight">
-                        </div>
+                        <!-- <div class="form-group">
+                            <label for="weight" class="col col-form-label-lg">Berat badan saat ini(KG):</label>
+                            <input type="number" class="form-control" id="weight" name="weight" value="{{old('weight')}}">
+                        </div> -->
                         <div class="btns">
                             <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                             <a href="{{url('/')}}" class="btn btn-danger btn-lg">kembali</a>

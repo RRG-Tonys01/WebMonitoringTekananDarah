@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Login</title>
     <link rel="stylesheet" href="/css/register.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -14,12 +14,7 @@
 </head>
 
 <body>
-    @if(session()->has('loginError'))
-    <div class="alaer alert-danger alert-dismissible fade show" role="alert">
-        {{session('loginError')}}
-        <button type="button" class="btn-close" data-bs-dismiss="aler" aria-label="Close"></button>
-    </div>
-    @endif
+    
     <div class="register mt-5 mb-5">
         <div class="container" data-aos="fade-right" data-aos-duration="800">
             <div class="row text-center judul">
@@ -31,6 +26,18 @@
                 <div class="col-md-5">
                     <div class="login mt-5">
                         <form method="POST" action="{{url('/login')}}" class="inputForm">
+                        @if(session()->has('loginError'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{"Username/Password Salah!"}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        @endif
+                        @if(session()->has('successRegister'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{session('successRegister')}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        @endif
                             <div class="fillUp">
                                 <h3>Selamat Datang!</h3>
                                 <hr>
@@ -39,11 +46,6 @@
                                 @csrf
                                 <label for="text" class="col col-form-label-lg">Username</label>
                                 <input type="text" class="form-control" id="text" name="username" placeholder="Input Username Anda" autofocus required value="{{old('username')}}">
-                                @error('username')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="password" class="col col-form-label-lg">Password</label>
@@ -56,6 +58,15 @@
                             <div class="mt-4">
                                 <p>Belum punya akun? <a href="{{url('/register')}}">Buat baru</a></p>
                             </div>
+                            @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
                         </form>
                     </div>
                 </div>
