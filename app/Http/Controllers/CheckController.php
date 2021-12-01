@@ -44,7 +44,6 @@ class CheckController extends Controller
         if(isset($results)){
             if ($this->insertData($hasil['siastolik'], $hasil['diastolik'], $results['rulesID'])) {
                 $getHasil = DB::table('rules')
-                    ->select('clarifications.c_nama')
                     ->join('clarifications', 'rules.c_kode', '=', 'clarifications.c_kode')
                     ->where('rulesID', '=', $results['rulesID'])
                     ->get();
@@ -53,7 +52,16 @@ class CheckController extends Controller
                 return view('auth.result', ['hasil' => $getHasil]);
             }
         } else {
-            return view('auth.control')->with('Input Failed', 'message');
+            if ($this->insertData($hasil['siastolik'], $hasil['diastolik'], "None")) {
+                $getHasil = DB::table('rules')
+                    ->join('clarifications', 'rules.c_kode', '=', 'clarifications.c_kode')
+                    ->where('rulesID', '=', "None")
+                    ->get();
+    
+                // dd($getHasil);
+                return view('auth.result', ['hasil' => $getHasil]);
+            }
+            return redirect('/control')->with('error_es', 'Hasil Pakar tidak ditemukan!');
         }
     }
 
@@ -100,9 +108,9 @@ class CheckController extends Controller
 
     public function insertData($siastolik, $diastolik, $rules)
     {
-        if ($rules == 'None') {
-            return false;
-        } else {
+        // if ($rules == 'None') {
+        //     return false;
+        // } else {
             $control = new ModelsControl();
             $control->id = Auth::user()->id;
             $control->siastolik = $siastolik;
@@ -111,6 +119,6 @@ class CheckController extends Controller
             $control->tanggal = '2021-11-10';
             $control->save();
             return true;
-        }
+        // }
     }
 }

@@ -32,7 +32,12 @@
                             </h2>
                             <hr class="dropdown-divider">
                         </div>
-
+                        @if(session()->has('error_es'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{session('error_es')}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        @endif
                         <form method="POST" action="{{url('/control')}}">
                             @csrf
                             <div class="inputbox">
