@@ -67,9 +67,9 @@ class CheckController extends Controller
 
     private function generateSiastolik($siastolik)
     {
-        if ($siastolik < 120) {
+        if ($siastolik <= 120) {
             return 'G01';
-        } else if (($siastolik >= 121 && $siastolik <= 130)) {
+        } else if (($siastolik >= 121 && $siastolik <= 129)) {
             return 'G03';
         } else if (($siastolik >= 130 && $siastolik <= 139)) {
             return 'G05';
@@ -87,9 +87,9 @@ class CheckController extends Controller
 
     private function generateDiastolik($diastolik)
     {
-        if ($diastolik < 80) {
+        if ($diastolik <= 80) {
             return 'G02';
-        } else if (($diastolik >= 81 && $diastolik <= 85)) {
+        } else if (($diastolik >= 81 && $diastolik <= 84)) {
             return 'G04';
         } else if (($diastolik >= 85 && $diastolik <= 89)) {
             return 'G06';
